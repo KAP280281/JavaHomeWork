@@ -1,9 +1,10 @@
 package com.pb.kravets.hw6;
 
 import com.pb.kravets.hw5.Reader;
+import java.lang.reflect.Constructor;
 
 public class VetClinic {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception  {
 
 
        Animal dog1 = new Dog("Лабрадор","Косточки", "Будка", 2,"Барбос");
@@ -15,11 +16,14 @@ public class VetClinic {
 
        Animal[] arrayanimal=new Animal[]{dog1,dog2,cat1,cat2,horse1,horse2};
 
-        Class clazz = Class.forName("hw6.Veterinarian");
-        Constructor constr = clazz.getConstructor(new Class[] {String.class});
-       //Veterinarian veterinarian=new Veterinarian();
+        Class clazz = Class.forName("com.pb.kravets.hw6.Veterinarian");
+        Constructor constr = clazz.getConstructor(new Class[] {});
+        Object obj = constr.newInstance();
+
+
+
         for (int i=0; i < 6; i++) {
-            veterinarian.treatAnimal(arrayanimal[i]);
+            ((Veterinarian)  obj).treatAnimal(arrayanimal[i]);
         }
 
 
