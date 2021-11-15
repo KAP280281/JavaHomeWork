@@ -10,32 +10,27 @@ public class Atelier {
         Clothes[] clothes = new Clothes[]{tshirt,pants,skirt,tie};
 
 
-        static void dressMan (Clothes[] clothes){
-            System.out.println("Муржская одержда:");
-            for (Clothes clothe: clothes){
-                if (clothe instanceof ManClothes){
-                    ((ManClothes) clothe).dressMan();
-                }
-            }
-        }
 
-        static void dressWomen (Clothes[] clothes){
-            System.out.println("Женская одержда:");
-            for (Clothes clothe: clothes){
-                if (clothe instanceof WomenClothes){
-                    ((WomenClothes) clothe).dressWomen();
-                }
-            }
-        }
         dressMan(clothes);
         dressWomen(clothes);
 
-        // Size dress = Size.XS;
-        //String s;
-       //System.out.println(Size.getDescription(dress.XXS));
-        //s=dress.getDescription(dress.XXS);
-        //System.out.println(s);
-        //int i = dress.getEvroSize(dress.XS);
-        //System.out.println(i);
+
+    }
+    static void dressMan (Clothes[] clothes){
+        System.out.println("Муржская одержда:");
+        for (Clothes clothe: clothes){
+            if (clothe instanceof ManClothes){
+                ((ManClothes) clothe).dressMan();
+            }
+        }
+    }
+
+    static void dressWomen (Clothes[] clothes){
+        System.out.println("Женская одержда:");
+        for (Clothes clothe: clothes){
+            if (clothe instanceof WomenClothes){
+                ((WomenClothes) clothe).dressWomen();
+            }
+        }
     }
 }
