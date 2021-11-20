@@ -22,27 +22,22 @@ public class OnlineShop {
             login = scan.nextLine();
             System.out.println("Введите пароль.");
             password = scan.nextLine();
+            try {
+                auth.signIn(login,password);
+                System.out.println("Пользователь "+auth.getLogin()+" успешно залогинился.");
+            }
+            catch (WrongLoginException e3){
+                System.out.println(e3.getMessage());
+            }
         }
-        catch (WrongLoginException e){
-            System.out.println("Введённый логин не соответстует требованиям");
-            System.out.println("длинна должна быть от 5 до 20 символов, должен содержать только латинские буквы и цифры");
-            e.printStackTrace();
+        catch (WrongLoginException e1){
+            System.out.println(e1.getMessage());
         }
-        catch (WrongPasswordException e){
-            System.out.println("Введённый пароль не соответстует требованиям или не совпадает с проверочным.");
-            System.out.println("длинна более 5, только латинские буквы и цифры и знак подчеркивания");
-            e.printStackTrace();
+        catch (WrongPasswordException e2){
+            System.out.println(e2.getMessage());
         }
 
 
-        try {
-            auth.signIn(login,password);
-            System.out.println("Пользователь "+auth.getLogin()+" успешно залогинился.");
-        }
-        catch (WrongLoginException e){
-            System.out.println("Ошибка авторизации!!!");
-            System.out.println("Неверно введёт логин или пароль.");
-            e.printStackTrace();
-        }
+
     }
 }
